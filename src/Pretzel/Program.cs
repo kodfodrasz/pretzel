@@ -25,8 +25,8 @@ namespace Pretzel
         private static void Main(string[] args)
         {
             Tracing.Logger.SetWriter(Console.Out);
-            Tracing.Logger.AddCategory("info");
-            Tracing.Logger.AddCategory("error");
+            Tracing.Logger.AddCategory(Tracing.Category.Info);
+            Tracing.Logger.AddCategory(Tracing.Category.Error);
 
             var debug = false;
             var help = false;
@@ -38,7 +38,7 @@ namespace Pretzel
             defaultSet.Parse(args);
 
             if (debug)
-                Tracing.Logger.AddCategory("debug");
+                Tracing.Logger.AddCategory(Tracing.Category.Debug);
 
             var program = new Program();
             Tracing.Info("starting pretzel...");
