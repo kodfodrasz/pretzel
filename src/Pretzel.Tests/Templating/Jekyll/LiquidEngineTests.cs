@@ -787,8 +787,8 @@ namespace Pretzel.Tests.Templating.Jekyll
 
             public override void When()
             {
-                FileSystem.AddFile(@"C:\website\_site\BadFormat.md", new MockFileData(OriginalPageContents) { LastWriteTime = new DateTime(2010, 01, 2) });
-                FileSystem.AddFile(@"C:\website\BadFormat.md", new MockFileData(PageContents) { LastWriteTime = new DateTime(2010, 01, 3) });
+                FileSystem.AddFile(@"C:\website\_site\BadFormat.md", new MockFileData(OriginalPageContents) { LastWriteTime = new DateTime(2013, 01, 2) });
+                FileSystem.AddFile(@"C:\website\BadFormat.md", new MockFileData(PageContents) { LastWriteTime = new DateTime(2014, 01, 3) });
 
                 var generator = GetSiteContextGenerator(FileSystem);
                 var context = generator.BuildContext(@"C:\website\", @"C:\website\_site", false);
@@ -796,7 +796,7 @@ namespace Pretzel.Tests.Templating.Jekyll
                 Subject.Process(context);
             }
 
-            [Fact]
+            [Fact(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
             public void Existing_File_Should_Be_Replaced()
             {
                 Assert.Equal(PageContents, FileSystem.File.ReadAllText(@"C:\website\_site\BadFormat.md").RemoveWhiteSpace());
@@ -815,7 +815,7 @@ namespace Pretzel.Tests.Templating.Jekyll
 
             public override void When()
             {
-                FileSystem.AddFile(@"C:\website\_site\BadFormat.md", new MockFileData(OriginalPageContents) { LastWriteTime = new DateTime(2010, 01, 5) });
+                FileSystem.AddFile(@"C:\website\_site\BadFormat.md", new MockFileData(OriginalPageContents) { LastWriteTime = new DateTime(2011, 01, 5) });
                 FileSystem.AddFile(@"C:\website\BadFormat.md", new MockFileData(PageContents) { LastWriteTime = new DateTime(2010, 01, 3) });
 
                 var generator = GetSiteContextGenerator(FileSystem);
