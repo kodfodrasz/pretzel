@@ -100,12 +100,11 @@ namespace Pretzel.Tests.Import
 
             var datePublished = publishedTimeStamp.ToString("ddd, dd MMM yyyy hh:mm:ss zzzzz");
 
-            outputFileName = string.Format("{0}_posts\\{1}-hello-world.md", BaseSite, publishedTimeStamp.ToString("yyyy-MM-dd"));
 
-            fileSystem = new MockFileSystem(new Dictionary<string, MockFileData>
-            {
-                { ImportFile, new MockFileData(string.Format(ImportContent, datePublished)) }
-            });
+            fileSystem = new MockFileSystem();
+            outputFileName = fileSystem.Path.Combine(BaseSite,"_posts", String.Format("{0}-hello-world.md",publishedTimeStamp.ToString("yyyy-MM-dd")));
+            
+            fileSystem.AddFile(ImportFile, new MockFileData(string.Format(ImportContent, datePublished)));
 
             wordpressImporter = new WordpressImport(fileSystem, BaseSite, ImportFile);
         }
