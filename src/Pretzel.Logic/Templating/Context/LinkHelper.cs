@@ -11,7 +11,7 @@ namespace Pretzel.Logic.Templating.Context
     [Export]
     public sealed class LinkHelper
     {
-        private static readonly Regex TimestampAndTitleFromPathRegex = new Regex(@"\\(?:(?<timestamp>\d+-\d+-\d+)-)?(?<title>[^\\]*)\.[^\.]+$", RegexOptions.Compiled);
+        private static readonly Regex TimestampAndTitleFromPathRegex = new Regex(String.Format(@"{0}(?:(?<timestamp>\d+-\d+-\d+)-)?(?<title>[^{0}]*)\.[^\.]+$", Regex.Escape(Path.DirectorySeparatorChar.ToString())), RegexOptions.Compiled);
         private static readonly Regex CategoryRegex = new Regex(@":category(\d*)", RegexOptions.Compiled);
         private static readonly Regex SlashesRegex = new Regex(@"/{1,}", RegexOptions.Compiled);
 
@@ -91,7 +91,7 @@ namespace Pretzel.Logic.Templating.Context
                 fileExtension = ".html";
             }
 
-            var link = relativePath.Replace('\\', '/').TrimStart('/') + "/" + GetPageTitle(page.Filepath) + fileExtension;
+            var link = relativePath.Replace(Path.DirectorySeparatorChar, '/').TrimStart('/') + "/" + GetPageTitle(page.Filepath) + fileExtension;
             if (!link.StartsWith("/"))
             {
                 link = "/" + link;

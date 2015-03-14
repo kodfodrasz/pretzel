@@ -44,8 +44,8 @@ namespace Pretzel.Tests
             [Fact]
             public void RemoveHeader_WithSampleValue_ContainsRestOfDocument()
             {
-                var input = File.ReadAllText("data\\yaml-header-input.md");
-                var expected = File.ReadAllText("data\\markdown-no-header-output.md");
+                var input = File.ReadAllText(Path.Combine("data", "yaml-header-input.md"));
+                var expected = File.ReadAllText(Path.Combine("data", "markdown-no-header-output.md"));
 
                 var actual = input.ExcludeHeader();
 

@@ -873,7 +873,7 @@ param: value
             Assert.Equal("this is a post", siteContext.Posts[0].Title);
             Assert.Equal(new DateTime(2015, 1, 26), siteContext.Posts[0].Date);
             Assert.Equal("<h1>Title</h1>", siteContext.Posts[0].Content.RemoveWhiteSpace());
-            Assert.Equal(string.Format(@"C:\TestSite\_site\{0}\SomeFile.md", currentDate.Replace("/", "\\")), siteContext.Posts[0].Filepath);
+            Assert.Equal(string.Format(@"C:\TestSite\_site\{0}\SomeFile.md", currentDate.Replace("/", fileSystem.Path.DirectorySeparatorChar.ToString())), siteContext.Posts[0].Filepath);
             Assert.Equal(filePath, siteContext.Posts[0].File);
             Assert.Equal(2, siteContext.Posts[0].Bag.Count); // param, date
             Assert.Equal("value", siteContext.Posts[0].Bag["param"]);
@@ -900,7 +900,7 @@ param: value
             Assert.Equal("this is a post", siteContext.Posts[0].Title);
             Assert.Equal(lastmod, siteContext.Posts[0].Date.Date);
             Assert.Equal("<h1>Title</h1>", siteContext.Posts[0].Content.RemoveWhiteSpace());
-            Assert.Equal(string.Format(@"C:\TestSite\_site\{0}SomeFile.md", currentDate.Replace("/", "\\")), siteContext.Posts[0].Filepath);
+            Assert.Equal(string.Format(@"C:\TestSite\_site\{0}SomeFile.md", currentDate.Replace("/", fileSystem.Path.DirectorySeparatorChar.ToString())), siteContext.Posts[0].Filepath);
             Assert.Equal(filePath, siteContext.Posts[0].File);
             Assert.Equal(2, siteContext.Posts[0].Bag.Count); // param, date
             Assert.Equal("value", siteContext.Posts[0].Bag["param"]);
