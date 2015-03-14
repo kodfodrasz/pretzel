@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Text.RegularExpressions;
+using Pretzel.Logic.Extensions;
 
 namespace Pretzel.Logic.Templating.Razor
 {
@@ -45,9 +46,11 @@ namespace Pretzel.Logic.Templating.Razor
             {
                 return Engine.Razor.RunCompile(content, pageData.Page.File, typeof(PageContext), pageData);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine(@"Failed to render template, falling back to direct content");
+                Tracing.Error(@"Failed to render template, falling back to direct content");
+                Tracing.Debug(e.Message);
+                Tracing.Debug(e.StackTrace);
                 return content;
             }
         }
