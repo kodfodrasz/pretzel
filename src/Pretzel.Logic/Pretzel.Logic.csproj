@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,6 +11,7 @@
     <RootNamespace>Pretzel.Logic</RootNamespace>
     <AssemblyName>Pretzel.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\src\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -46,6 +47,9 @@
     </Reference>
     <Reference Include="dotless.ClientOnly">
       <HintPath>..\packages\DotlessClientOnly.1.4.1.0\lib\dotless.ClientOnly.dll</HintPath>
+    <Reference Include="dotless.ClientOnly, Version=1.5.0.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotlessClientOnly.1.5.0\lib\dotless.ClientOnly.dll</HintPath>
     </Reference>
     <Reference Include="DotLiquid, Version=1.8.0.0, Culture=neutral, PublicKeyToken=82e46016ecf9f07c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -62,30 +66,32 @@
     <Reference Include="NDesk.Options">
       <HintPath>..\packages\NDesk.Options.0.2.1\lib\NDesk.Options.dll</HintPath>
     </Reference>
-    <Reference Include="RazorEngine, Version=3.6.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+    <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RazorEngine.3.6.0\lib\net45\RazorEngine.dll</HintPath>
+      <HintPath>..\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Abstractions, Version=2.0.0.112, Culture=neutral, PublicKeyToken=d480b5b72fb413da, processorArchitecture=MSIL">
+    <Reference Include="System.IO.Abstractions, Version=2.0.0.115, Culture=neutral, PublicKeyToken=d480b5b72fb413da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\System.IO.Abstractions.2.0.0.112\lib\net40\System.IO.Abstractions.dll</HintPath>
+      <HintPath>..\packages\System.IO.Abstractions.2.0.0.115\lib\net40\System.IO.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="YamlDotNet, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="YamlDotNet, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\YamlDotNet.3.5.1\lib\net35\YamlDotNet.dll</HintPath>
+      <HintPath>..\packages\YamlDotNet.3.6.0\lib\net35\YamlDotNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
