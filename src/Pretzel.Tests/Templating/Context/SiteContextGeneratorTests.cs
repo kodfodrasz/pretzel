@@ -722,7 +722,7 @@ param: value
             Assert.Equal(1, siteContext.Pages.Count);
             Assert.Equal("this is a post", siteContext.Pages[0].Title);
             Assert.Equal(lastmod, siteContext.Pages[0].Date.Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Pages[0].Content.TrimEnd());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Pages[0].Content);
             Assert.Equal(@"C:\TestSite\_site\SomeFile.md", siteContext.Pages[0].Filepath);
             Assert.Equal(@"C:\TestSite\SomeFile.md", siteContext.Pages[0].File);
             Assert.Equal(2, siteContext.Pages[0].Bag.Count); // param, date
@@ -746,7 +746,7 @@ param: value
             Assert.Equal(1, siteContext.Pages.Count);
             Assert.Equal("my title", siteContext.Pages[0].Title);
             Assert.Equal(new DateTime(2015, 1, 27), siteContext.Pages[0].Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Pages[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Pages[0].Content);
             Assert.Equal(@"C:\TestSite\_site\SomeFile.md", siteContext.Pages[0].Filepath);
             Assert.Equal(@"C:\TestSite\SomeFile.md", siteContext.Pages[0].File);
             Assert.Equal(3, siteContext.Pages[0].Bag.Count); // title, date, param
@@ -772,7 +772,7 @@ param: value
             Assert.Equal(1, siteContext.Pages.Count);
             Assert.Equal("this is a post", siteContext.Pages[0].Title);
             Assert.Equal(new DateTime(2015, 1, 26), siteContext.Pages[0].Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Pages[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Pages[0].Content);
             Assert.Equal(string.Format(@"C:\TestSite\_site\{0}-SomeFile.md", currentDate.Replace("/", "-")), siteContext.Pages[0].Filepath);
             Assert.Equal(filePath, siteContext.Pages[0].File);
             Assert.Equal(2, siteContext.Pages[0].Bag.Count); // param, date
@@ -798,7 +798,7 @@ param: value
             Assert.Equal(1, siteContext.Pages.Count);
             Assert.Equal("this is a post", siteContext.Pages[0].Title);
             Assert.Equal(lastmod, siteContext.Pages[0].Date.Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Pages[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Pages[0].Content);
             Assert.Equal(string.Format(@"C:\TestSite\_site\{0}SomeFile.md", currentDate.Replace("/", "-")), siteContext.Pages[0].Filepath);
             Assert.Equal(filePath, siteContext.Pages[0].File);
             Assert.Equal(2, siteContext.Pages[0].Bag.Count); // param, date
@@ -822,7 +822,7 @@ param: value
             Assert.Equal(1, siteContext.Posts.Count);
             Assert.Equal("this is a post", siteContext.Posts[0].Title);
             Assert.Equal(lastmod, siteContext.Posts[0].Date.Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Posts[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Posts[0].Content);
             Assert.Equal(@"C:\TestSite\_site\SomeFile.md", siteContext.Posts[0].Filepath);
             Assert.Equal(@"C:\TestSite\_posts\SomeFile.md", siteContext.Posts[0].File);
             Assert.Equal(2, siteContext.Posts[0].Bag.Count); // param, date
@@ -846,7 +846,7 @@ param: value
             Assert.Equal(1, siteContext.Posts.Count);
             Assert.Equal("my title", siteContext.Posts[0].Title);
             Assert.Equal(new DateTime(2015, 1, 27), siteContext.Posts[0].Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Posts[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Posts[0].Content);
             Assert.Equal(@"C:\TestSite\_site\SomeFile.md", siteContext.Posts[0].Filepath);
             Assert.Equal(@"C:\TestSite\_posts\SomeFile.md", siteContext.Posts[0].File);
             Assert.Equal(3, siteContext.Posts[0].Bag.Count); // title, date, param
@@ -872,7 +872,7 @@ param: value
             Assert.Equal(1, siteContext.Posts.Count);
             Assert.Equal("this is a post", siteContext.Posts[0].Title);
             Assert.Equal(new DateTime(2015, 1, 26), siteContext.Posts[0].Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Posts[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Posts[0].Content);
             Assert.Equal(string.Format(@"C:\TestSite\_site\{0}\SomeFile.md", currentDate.Replace("/", fileSystem.Path.DirectorySeparatorChar.ToString())), siteContext.Posts[0].Filepath);
             Assert.Equal(filePath, siteContext.Posts[0].File);
             Assert.Equal(2, siteContext.Posts[0].Bag.Count); // param, date
@@ -899,7 +899,7 @@ param: value
             Assert.Equal(1, siteContext.Posts.Count);
             Assert.Equal("this is a post", siteContext.Posts[0].Title);
             Assert.Equal(lastmod, siteContext.Posts[0].Date.Date);
-            Assert.Equal("<h1>Title</h1>", siteContext.Posts[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Posts[0].Content);
             Assert.Equal(string.Format(@"C:\TestSite\_site\{0}SomeFile.md", currentDate.Replace("/", fileSystem.Path.DirectorySeparatorChar.ToString())), siteContext.Posts[0].Filepath);
             Assert.Equal(filePath, siteContext.Posts[0].File);
             Assert.Equal(2, siteContext.Posts[0].Bag.Count); // param, date
@@ -944,7 +944,7 @@ date: 20150127
             var siteContext = generator.BuildContext(@"C:\TestSite", @"C:\TestSite\_site", false);
 
             Assert.Equal(1, siteContext.Pages.Count);
-            Assert.Equal("<h1>Title</h1><p>bar</p>", siteContext.Pages[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n<p>bar</p>\n", siteContext.Pages[0].Content);
         }
 
         [Fact]
@@ -1014,7 +1014,7 @@ date: 20150127
 
             // assert
             Assert.Equal(1, siteContext.Pages.Count);
-            Assert.Equal("<h1>Title</h1>", siteContext.Pages[0].Content.RemoveWhiteSpace());
+            Assert.Equal("<h1>Title</h1>\n", siteContext.Pages[0].Content);
             // Check if the temp file have been deleted
             fileSubstitute.Received().Delete(filePath);
         }
