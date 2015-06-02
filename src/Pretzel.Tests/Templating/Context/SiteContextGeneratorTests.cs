@@ -80,7 +80,6 @@ namespace Pretzel.Tests.Templating.Context
             Assert.Equal(1, siteContext.Posts.Count);
         }
 
-        [Fact(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         public void posts_without_front_matter_uses_convention_to_render_folder()
         {
             var file = new MockFileData("# Title");
@@ -98,7 +97,6 @@ namespace Pretzel.Tests.Templating.Context
             Assert.Equal(outputPath, firstPost.Url);
         }
 
-        [Fact(Skip="https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         public void posts_without_front_matter_and_override_config_renders_folder()
         {
             var post = new MockFileData("# Title");
@@ -299,7 +297,6 @@ title: Title
             Assert.Equal(2, siteContext.Posts.Count);
         }
 
-        [Theory(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         [InlineData(@"C:\TestSite\2014-01-01-ByFilename.md", false)]
         [InlineData(@"C:\TestSite\UsingDefault.md", true)]
         public void site_context_pages_have_date_in_bag(string fileName, bool useDefault)
@@ -705,7 +702,6 @@ published: false
         }
 
 
-        [Fact(Skip="https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         public void page_default_values()
         {
             var filename = @"C:\TestSite\SomeFile.md";
@@ -779,7 +775,6 @@ param: value
             Assert.Equal("value", siteContext.Pages[0].Bag["param"]);
         }
 
-        [Fact(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         public void page_with_false_date_in_title()
         {
             var currentDate = new DateTime(2015, 1, 26).ToShortDateString();
@@ -805,7 +800,6 @@ param: value
             Assert.Equal("value", siteContext.Pages[0].Bag["param"]);
         }
 
-        [Fact(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         public void post_default_values()
         {
             var filename = @"C:\TestSite\SomeFile.md";
@@ -879,7 +873,6 @@ param: value
             Assert.Equal("value", siteContext.Posts[0].Bag["param"]);
         }
 
-        [Fact(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
         public void post_with_false_date_in_title()
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;

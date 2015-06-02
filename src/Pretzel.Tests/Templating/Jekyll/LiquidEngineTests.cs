@@ -796,7 +796,6 @@ namespace Pretzel.Tests.Templating.Jekyll
                 Subject.Process(context);
             }
 
-            [Fact(Skip = "https://github.com/tathamoddie/System.IO.Abstractions/issues/122")]
             public void Existing_File_Should_Be_Replaced()
             {
                 Assert.Equal(PageContents, FileSystem.File.ReadAllText(@"C:\website\_site\BadFormat.md").RemoveWhiteSpace());
