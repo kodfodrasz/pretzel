@@ -28,7 +28,7 @@ namespace Pretzel
 
             var parameters = BaseParameters.Parse(args, new FileSystem());
 
-            if (parameters.Debug)
+            if (parameters.Debug){
                 Tracing.Logger.AddCategory(Tracing.Category.Debug);
             }
 
