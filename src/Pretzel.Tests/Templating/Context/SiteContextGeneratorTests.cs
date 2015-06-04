@@ -919,7 +919,6 @@ date: 20150127
             Assert.Equal(0, siteContext.Pages.Count);
             Assert.Contains(@"Failed to build post from File: C:\TestSite\SomeFile.md", sb.ToString());
             Assert.Contains(@"String was not recognized as a valid DateTime.", sb.ToString());
-            Assert.Contains(@"System.FormatException: String was not recognized as a valid DateTime.", sb.ToString());
         }
 
         [Fact]
@@ -961,7 +960,6 @@ date: 20150127
             Assert.Equal(1, siteContext.Pages.Count);
             Assert.Equal("<p><b>Error converting markdown</b></p><pre>---\r\n---# Title\r\n[foo]</pre>", siteContext.Pages[0].Content);
             Assert.Contains(@"Error (foo bar) converting C:\TestSite\SomeFile.md", sb.ToString());
-            Assert.Contains(@"System.Exception: foo bar", sb.ToString());
         }
 
         [Fact]
@@ -1056,7 +1054,6 @@ date: 20150127
             Assert.Equal(0, siteContext.Pages.Count);
             Assert.Contains(@"Failed to build post from File: C:\TestSite\SomeFile.md", sb.ToString());
             Assert.Contains(@"I/O error occurred.", sb.ToString());
-            Assert.Contains(@"System.IO.IOException: I/O error occurred.", sb.ToString());
             // Check if the temp file have been deleted
             fileSubstitute.Received().Delete(filePath);
         }

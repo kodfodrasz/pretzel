@@ -1511,6 +1511,7 @@ namespace Pretzel.Tests.Templating.Jekyll
             {
                 var engine = new LiquidEngine();
                 engine.Initialize();
+                engine.Tags = new List<ITag> { new PostUrlTag() };
                 return engine;
             }
 
@@ -1720,8 +1721,8 @@ namespace Pretzel.Tests.Templating.Jekyll
 
         public class Given_Page_Has_HTML_Code_Block : BakingEnvironment<LiquidEngine>
         {
-            private const string PageContents = "---\r\n layout: nil \r\n---\r\n\r\n```html\r\n<span>word</span>\r\n```\r\n";
-            private const string ExpectedfileContents = "<pre><code class=\"language-html\">&lt;span&gt;word&lt;/span&gt;</code></pre>";
+            private const string PageContents = "---\r\n layout: nil \r\n---\r\n\r\n~~~\r\n<span>word</span>\r\n~~~\r\n";
+            private const string ExpectedfileContents = "<pre><code>&lt;span&gt;word&lt;/span&gt;</code></pre>";
 
             public override LiquidEngine Given()
             {

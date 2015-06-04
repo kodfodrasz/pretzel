@@ -23,7 +23,7 @@ namespace Pretzel.Logic.Templating.Context
         private readonly IEnumerable<IContentTransform> contentTransformers;
         private readonly List<string> includes = new List<string>();
         private readonly List<string> excludes = new List<string>();
-        static readonly Markdown Markdown = MarkdownHelper.CreateMarkdown();
+        private readonly Markdown Markdown = MarkdownHelper.CreateMarkdown();
         private LinkHelper linkHelper;
 
         [ImportingConstructor]

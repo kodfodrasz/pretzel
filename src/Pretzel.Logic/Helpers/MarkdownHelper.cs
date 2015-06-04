@@ -12,7 +12,7 @@ namespace Pretzel.Logic.Helpers
         }
 
         // Original code: http://www.toptensoftware.com/Articles/83/MarkdownDeep-Syntax-Highlighting
-        public static Regex rxExtractLanguage = new Regex("^({{(.+)}}[\r\n])", RegexOptions.Compiled);
+        public static Regex rxExtractLanguage = new Regex("^((.+)[\r\n])", RegexOptions.Compiled);
 
         public static string FormatCodePrettyPrint(Markdown m, string code)
         {
@@ -49,7 +49,7 @@ namespace Pretzel.Logic.Helpers
             if (string.IsNullOrEmpty(language))
                 return string.Format("<pre><code>{0}</code></pre>\n", code);
             else
-                return string.Format("<pre class=\"prettyprint lang-{0}\"><code>{1}</code></pre>\n",
+                return string.Format("<pre><code class=\"language-{0}\">{1}</code></pre>\n",
                                     language.ToLowerInvariant(), code);
         }
 
